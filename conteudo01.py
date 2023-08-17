@@ -33,11 +33,20 @@ print ('hello' ,'world', sep="-") #Saida: hello-world###hello-world
 Tudo em python é um objeto, incluindo os tipos primitivos
 O python é uma linguagem de tipagem dinamica, significa que se eu colocar o texto entre aspas, 
 o python sabe que é uma string
+
+str - String : Textos 'Exemplo' "Exemplo"
+int - Inteiro: Numeros negativos e positivos 123456 -1 0 10 -10
+float - real/ponto flutuante: casas decimais 5.2 -10.9
+bool - booleano/lógico: TRUE/FALSO 5==5
 """
+
 #1.3.1.STRING
-str
 print("Essa é uma 'string' (str).") #Inserindo a palavra string dentro da frase
 print('Esse é meu \"texto\" (str).') #Inserindo caractere de escape para inserir a palavra texto
 print(r'Esse é meu \n texto (str).') #Não executa códigos contidos como comandos
+
+
+
+
 
 
