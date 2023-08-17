@@ -39,6 +39,8 @@ int - Inteiro: Numeros negativos e positivos 123456 -1 0 10 -10
 float - real/ponto flutuante: casas decimais 5.2 -10.9
 bool - booleano/lógico: TRUE/FALSO 5==5
 """
+print(type('Luiz')) #Retorna o tipo utilizado no código: Saida <class 'str'>
+print(type(int('20'))) #Retorna o tipo convertido no código: Saida <class 'int'>
 
 #1.3.1.STRING
 print("Essa é uma 'string' (str).") #Inserindo a palavra string dentro da frase
