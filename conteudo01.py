@@ -138,3 +138,118 @@ numero_2 = int(input('Digite outro número: ')) #conversão direta pra numero
 print (numero_1 + numero_2)
 
 
+#1.9.CONDIÇÕES IF, ELIF, E ELSE
+#se verdadeiro
+if True:
+    print("Verdadeiro") #4 espaços para hierarquia
+
+    num_1 = 2
+    num_2 = 4
+    print(num_1 + num_2)
+
+#se falso
+if False:
+    print("Verdadeiro")
+print("A minha expressão não é verdadeira")
+
+#com  else
+if False:
+    print("Verdadeiro")
+else:
+    print("A minha expressão não é verdadeira")
+
+# com o elif
+if False:
+    print("Verdadeiro")
+elif True:
+    print("Agora é verdadeiro")
+elif False:
+    print("Agora não é verdadeiro")
+else:
+    print("A minha expressão não é verdadeira")
+
+
+
+#1.10.OPERADORES RELACIONAIS + IFELIFELSE
+"""
+= : Atribuição de valor
+==: Igualdade
+> : Maior que
+< : Menor que
+>=: Maior ou igual a
+!=: Diferente
+"""
+
+print (2 == 2) #Imprime True
+print (2 == 1) #Imprime False
+print (2 == "2") #Imprime False
+
+num_1 = 1
+num_2 = 2
+expressao = (num_1 >= num_2)
+
+print(expressao)
+
+
+#1.11.OPERADORES LÓGICOS + IFELIFELSE
+"""
+and : Verdadeiro E Verdadeiro
+or
+not
+in
+not in
+"""
+
+a = 2
+b = 2
+c = 3
+compare = a == b and b < c
+print(compare) #Exibe True na tela
+
+#(Verdadeiro E Verdadeiro) = Verdadeiro
+a == b and b < c
+
+#(Verdadeiro OU Verdadeiro) = Verdadeiro
+a == b or b < c
+
+#(NOT) = Inverte o valor
+a=2
+b=3
+if not b > a : #Adicionando o Não antes de b> que A
+    print("B é maior que A")
+else:
+    print("A é maior que B") #Resultado que exibirá
+
+#Verificação de uma variavel vazia
+a=""
+b= 0
+if not a or b :
+    print("Preencha o valor de A")
+    print("Preencha o valor de B") #0 é considerado um booleano falso
+
+
+#Verifica se há um valor contido na variavel
+nome = "Luiz Otávio"
+if "u" in nome:
+    print("Existe a letra U no seu nome")
+else:
+    print("Não existe a letra U no seu nome")
+
+#Verifica se não há um valor contido na variavel
+nome = "Luiz Otávio"
+if "vio" in nome:
+    print("Executei")
+else:
+    print("Existe o texto")
+
+#Checagem de usuário e senha
+usuario = input("Nome do usuário: ")
+senha = input("Senha do usuário: ")
+
+usuario_bd = 'Luiz'
+senha_bd = '123456'
+
+if usuario_bd == usuario and senha_bd  == senha:
+    print('Você está logado no sistema')
+else:
+    print('Usuário ou senha inválidos')
