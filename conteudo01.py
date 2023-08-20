@@ -253,3 +253,14 @@ if usuario_bd == usuario and senha_bd  == senha:
     print('Você está logado no sistema')
 else:
     print('Usuário ou senha inválidos')
+
+
+#1.12. len - QUANTIDADE DE CARACTERES
+usuario = input ("Digite seu usuario: ")
+qtd_caracteres = len(usuario) #Conta a quantidade de caracteres da variavel
+
+if qtd_caracteres < 6:
+    print("Você precisa digitar pelo menos 6 caracteres")
+else:
+    print("Você foi cadastrado no sistema")
+
