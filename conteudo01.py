@@ -264,3 +264,124 @@ if qtd_caracteres < 6:
 else:
     print("Você foi cadastrado no sistema")
 
+
+
+#1.13.DOCUMENTAÇÕES E FUNÇÃO BUILT-IN UTEIS
+
+#https://docs.python.org/pt-br/3/tutorial/
+
+#1.13.1.String Methods
+"""
+São funções que conferem se a string pode ser convertida em números
+isnumeric: Confere true se forem numeros inteiros e positivos
+isdigit:
+isdecimal
+"""
+num1 =input("insira um numero")
+print(num1.isdecimal())
+
+if num1.isdigit():
+    num1 = int(num1) #converte para inteiro
+    print(num1)
+else:
+    print("Não pude converter os números")
+
+#tratamento de erros
+try:
+    num1 = float(num1)
+    print(num1)
+except:
+    print("ERROR")
+
+
+#1.14.PASS E ELLIPSIS COM PLACEHOLDERS
+"""
+Python não define blocos de código {}, então para deixar um lugar pronto para posteriormente escrever o código
+podemos utilizar a palavrinha pass que é feita especialmente para evitar erros de identação
+"""
+
+valor = False
+if valor:
+    pass #Também pode ser usado ...
+    ... #Ellipsis e pass possuem a mesma função nessa situação
+else:
+    print("tchau")
+
+
+#1.15.EXERCICIOS PROPOSTOS
+"""
+Faça um programa que peça para o usuário digitar um número inteiro,
+informe se esse número é par ou impar. Caso o usuário não digite um número inteiro,
+informe que não é um número inteiro
+"""
+#RESPOSTA
+num1 = input("Digite um número inteiro: ")
+if num1.isdigit():
+    num1 = int(num1)
+    if num1%2 == 0:
+        print("Numero par")
+    else:
+        print("Numero impar")
+else:
+    print("esse não é um numero inteiro")
+
+
+"""
+Faça um programa que pergunte a hora ao usuário e, baseando-se no horário
+descrito, exiba a saudação apropriada
+bom dia: 0-11, boa tarde:12-17, boa noite: 18-23
+"""
+#RESPOSTA
+hora = int(input("digite a hora atual hh"))
+if hora >= 00 and hora <= 11:
+    print ("Bom dia")
+elif hora >= 12 and hora <= 17:
+    print("Boa tarde")
+elif hora >= 18 and hora <= 23:
+    print("Boa noite")
+
+"""
+Faça um programa que peça o primeiro nome do usuário. Se o nome tiver 4 letras ou menos
+escreva "Seu nome é curto", se tiver entre 5 e 6 letras, escreva "Seu nome é normal", maior que 6
+escreva "Seu nome é muito grande
+"""
+nome = input("Digite seu primeiro nome: ")
+qtd_caracteres = len(nome)
+
+if qtd_caracteres<=4:
+    print("Seu nome é curto")
+elif qtd_caracteres>=5 and qtd_caracteres<=6:
+    print("Seu nome é normal")
+elif qtd_caracteres>6:
+    print("Seu nome é muito grande")
+
+
+#1.15.FORMATANDO VALORES EM PYTHON
+"""
+FORMATANDO VALORES COM MODIFICADORES
+
+:s - Texto (strings)
+:d - inteiros (int)
+:f - numeros de ponto flutuante (float)
+:.(NUMERO)f - Quantidade de casas decimais (float)
+: (CARACTERE) (> ou < ou ^) (QUANTIDADE) (TIPO -s, d ou f)
+
+> - Esquerda
+< - Direita
+^ - Centro
+"""
+print('{:.2f}'.format(2/3)) #formata para apenas 2 casas decimais depois do numero inteiro (0.67)
+print( f'{2/3:.2f}') #formato fstrings (0.67)
+print(f'{"regiane":s}') #formato de strings
+print(f'{1:0>10}') #preenchendo com 0's a esquerda de 1 até atingir quantidade de 10 (000 000 000 1)
+print(f'{1150:0^10}') #preenchendo com 0's em torno do numero 1150 até atingir a quantidade de 10 (000 1150 000)
+print(f'{1150:.2f}') #duas casas decimais depois de 1150 (1150.00)
+print(f'{"regiane":#^25}') #preenche com # centrallizando o nome no meio até atingir 25 caracteres (#########regiane#########
+print('{:@>10}'.format("Regiane")) #preenche com @ a esquerda do nome até completar 10 caracteres (@@@Regiane)
+print('{n:0<10}'.format(n="Regiane")) #preenche com 0's a direita do nome até completar 10 caracteres (Regiane000)
+print('{1}'.format("Regiane","Almeida")) #imprime com a numeração do indice (Almeida)
+
+nome = "Regiane almeida"
+print(nome.lower()) #tudo minusculo (regiane almeida
+print(nome.upper()) #tudo maiusculo (REGIANE ALMEIDA)
+print(nome.title()) #primeiras letras maiusculas (Regiane Almeida)
