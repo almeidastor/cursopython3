@@ -385,3 +385,179 @@ nome = "Regiane almeida"
 print(nome.lower()) #tudo minusculo (regiane almeida
 print(nome.upper()) #tudo maiusculo (REGIANE ALMEIDA)
 print(nome.title()) #primeiras letras maiusculas (Regiane Almeida)
+
+
+#1.16.INDICES E FATIAMENTO DE STRINGS EM PYTHON
+
+"""
+* String indices
+* Fatiamento de Strings [inicio:fim:passo]
+* Funções built-in len, abs, type, print, etc...
+Essas funções podem ser usadas diretamente em cada tipo
+
+Você pode conferir tudo isso em
+https://docs.python.org/3/library/stdtypes.html (tipos de built-in)
+https://docs.python.org/3/library/functions.html (funções built-in)
+"""
+#INDICES
+#Positivos   [012345678]
+#Negativos  -[987654321]
+texto      = 'Python s2'
+print (texto[2]) #Exibe t na tela
+print (texto[-2]) #Exibe s na tela
+
+#FATIAMENTO
+#Para pegar o caractere 5, precisa colocar o numero 6
+nova_string = texto[2:6] #Exibe thon na tela
+nova_string = texto[-9:-3] #Exibe Python na tela
+
+nova_string = texto[:6] #Para pegar desde o começo, só omitir o primeiro caractere
+nova_string = texto[7:] #Para pegar do caractere para o final, só omitir o ultimo caractere
+nova_string = texto[0:6:2] #Para pegar do primeiro caractere para o 5, pulando de 2 palavras (:2 é o step)
+nova_string = texto[0:6:3] #Para pegar do primeiro caractere para o ultimo, pulando de 3 caracteres (:3 é o step)
+
+
+#1.17.WHILE - ESTRUTURA DE REPETIÇÃO EM PYTHON
+"""
+Utilizado para realizar ações enquanto uma condição for verdadeira
+"""
+
+while True:
+    nome = input("qual seu nome? ")
+    print(f'Olá {nome}!') #loop infinito
+
+print('Não será executado')
+
+x=0
+while x < 10:
+    print(x)
+    x = x + 1 #ou x+=1
+print("Acabou")
+
+x=0
+while x < 10:
+    if x ==3:
+        x=x+1
+        continue #o programa não executará o laço do mesmo bloco, vai dar seguimento ao código
+        break #termina o laço
+    print(x)
+    x = x + 1
+print("Acabou")
+
+while True:
+    print("Calculadora")
+    num_1 = input("Digite um número: ")
+    num_2 = input("Digite outro número: ")
+    operador = input("Digite um operador: ")
+    sair = input('Deseja sair? s ou n? ')
+
+
+    if not num_1.isnumeric() or not num_2.isnumeric():
+        print("Você precisa digitar um número")
+        continue
+
+    if sair == 's':
+        break
+
+    num_1 = int(num_1)
+    num_2 = int(num_2)
+
+    # + - / *
+    if operador == "+":
+        print(num_1 + num_2)
+    elif operador == "-":
+        print(num_1 - num_2)
+    elif operador == "/":
+        print(num_1 / num_2)
+    elif operador == "*":
+        print(num_1 * num_2)
+    else:
+        print("operador inválido")
+
+
+#1.18.WHILEELSE - REPETIÇÃO COM ACUMULADORES EM PYTHON
+
+#1.18.1.CONTADOR
+contador = 0
+while contador < 10:
+    print(contador)
+    contador +=1
+
+
+#1.18.2.ACUMULADOR
+contador = 1
+acumulador = 50
+while contador <=10:
+    print(contador, acumulador)
+    if contador > 5:
+        break
+    acumulador = acumulador + contador
+    contador += 1
+else:
+    print("Cheguei no else")
+print("Isso será executado")
+
+
+
+#1.19.ITERANDO STRINGS COM WHILE EM PYTHON
+
+#        indices
+#        0123456..........................33
+frase = 'o rato roeu a roupa do rei de roma'
+tamanho_frase = len(frase) #conta os 34 elementos
+contador = 0
+nova_string = ''
+
+while contador < tamanho_frase:
+    print(frase[contador] , contador)
+    print('###############')
+    nova_string += frase[contador]
+    contador +=1
+print(nova_string) #o rato roeu a roupa do rei de roma
+
+input_do_usuario = input('Qual a letra que você gostaria de tornar maiuscula? ')
+while contador < tamanho_frase:
+    letra = frase[contador]
+    if letra == input_do_usuario:
+        nova_string += input_do_usuario.upper()
+    else:
+        nova_string += letra
+    contador += 1
+print(nova_string) #o Rato Roeu a Roupa do Rei de Roma
+
+#1.20.FOR IN - ESTRUTURA DE REPETIÇÃO EM PYTHON
+"""
+Iterando strings com for
+Função range(start=0, stop, step=1)
+"""
+texto = 'Python'
+for letra in texto:
+    print(letra)
+
+#1.20.1.FUNÇÃO RANGE
+for numero in range (5,10,2): #start=5, stop=10, step=2
+    print(numero)
+
+for numero in range (20,10,-2): #start=20, stop=10, step=-2
+    print(numero)
+
+#1) Multiplos de 8
+for n in range (0,100,8):
+    print(n)
+
+#2) Multiplos de 8
+for n in range (100):
+    if n % 8 == 0:
+        print(n)
+
+#3) Texto em maiusculo
+text = 'Python'
+nova_string = ""
+
+for letra in text:
+    if letra == 't':
+        nova_string = nova_string + letra.upper() #deixa todas as letras T maiuscula
+        continue #passa para o próximo código
+    else:
+        nova_string += letra
+print(nova_string)
