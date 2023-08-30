@@ -561,3 +561,103 @@ for letra in text:
     else:
         nova_string += letra
 print(nova_string)
+
+
+#1.21.LISTAS EM PYTHON
+"""
+Fatiamento
+append, insert, pop, del, clear, extend, +
+min, max
+range
+"""
+lista_1 = [1,2,3,"Regiane",True,10.5] #Em uma lista podemos elencar diversos tipos
+
+#Indice    0    1    2    3    4
+#nIndice  -5   -4   -3   -2   -1
+lista =  ["A", "B", "C", "D", "E"]
+
+print(lista[1]) #B
+print(lista_1[-1]) #10.5
+print(lista_1[0:3]) #1,2,3
+print(lista_1[::-1]) #inverte a lista
+
+#1.21.1.FUNÇÕES
+#Concatenação
+l1= [1,2,3]
+l2= [4,5,6]
+l3= l1+l2
+print(l3) #[1, 2, 3, 4, 5, 6]
+
+#Extend
+l1.extend(l2) #[1, 2, 3, 4, 5, 6]
+l1.extend('a') #[1, 2, 3, 4, 5, 6, 'a']
+
+#Append
+l2.append('b') #[4, 5, 6, 'b']
+
+#Insert
+l2.insert(0, 'banana') #insere a palavra banana no indice 0 - ['banana', 4, 5, 6, 'b']
+
+#Pop
+l2.pop()  #Remove o ultimo elemento da lista
+
+#del
+del(l3[0:4]) #Remove uma série de elementos
+
+#max-min
+l2= [4,5,6]
+print(max(l2)) #maior valor da lista
+print(min(l2)) #menor valor da lista
+
+#Range
+"""
+A função range cria uma cadeia de objetos, porem não em formato de lista e sim em formato de objeto range
+"""
+l2=range(1,9) #range(1,9)
+
+"""
+O Python tem uma função chamada list que converte um objeto iterável em uma lista
+"""
+l2= list(range(1,9)) #[1, 2, 3, 4, 5, 6, 7, 8]
+l2= list(range(1,9,2)) #De 1 a 9 pulando de 2 em 2
+
+#1.21.2.JOGO
+secreto = 'perfume'
+digitados = []
+chances = 5
+
+while True:
+    if chances <=0:
+        print('você perdeu')
+        break
+
+    letra = input("Digite uma letra: ")
+
+    if len(letra)> 1:
+        print("Ahhh, isso não vale, digite apenas 1 letra")
+        continue
+
+    digitados.append(letra)
+    if letra in secreto:
+        print(f"Uhuul, a letra {letra} existe na palavra secreta")
+    else:
+        print(f"Affz, a letra {letra} não existe na palavra secreta")
+        digitados.pop()
+
+    secreto_temporario = ''
+    for letra_secreta in secreto:
+        if letra_secreta in digitados:
+            secreto_temporario += letra_secreta
+        else:
+            secreto_temporario += '*'
+
+    if secreto_temporario == secreto:
+            print(f'Que legal, VOCÊ GANHOU!!! a palavra era {secreto_temporario}')
+            break
+    else:
+            print(secreto_temporario)
+
+    if letra not in secreto:
+        chances-=1
+
+    print(f'você ainda tem {chances} chances')
