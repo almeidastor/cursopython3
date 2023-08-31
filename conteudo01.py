@@ -661,3 +661,119 @@ while True:
         chances-=1
 
     print(f'você ainda tem {chances} chances')
+
+
+#1.22.FOR ELSE EM PYTHON
+"""
+
+"""
+variavel = ['Luiz Otavio','Joaozinho', 'Maria']
+
+for valor in variavel:
+    if valor.lower().startswith('j'):
+        break
+else:
+    print("Não existe uma paavra que começa com j")
+
+
+#1.23.SPLIT, JOIN E ENUMERATE EM PYTHON
+"""
+* Split: Dividir uma String # str
+* Join: Juntar uma lista # str
+* Enumerate: Enumerar elementos da lista # list / iteraveis
+"""
+
+#1.23.1.SPLIT
+string = "O Brasil é o Pais do futebol, o Brasil é penta"
+lista = string.split(' ')
+print(lista) #['O', 'Brasil', 'é', 'o', 'Pais', 'do', 'futebol,', 'o', 'Brasil', 'é', 'penta']
+lista = string.split(',')
+print(lista) #['O Brasil é o Pais do futebol', ' o Brasil é penta']
+
+#1.23.2.JOIN
+lista = ['O', 'Brasil', 'é', 'o', 'Pais', 'do', 'futebol,', 'o', 'Brasil', 'é', 'penta']
+string2 = ",".join(lista)
+print(string2) #O,Brasil,é,o,Pais,do,futebol,,o,Brasil,é,penta
+
+
+#1.23.3.ENUMERATE
+lista = ['Luiz', 'Joao', 'Maria']
+for indice, nome in enumerate (lista):
+    print(indice,nome)
+    #0 Luiz
+    #1 Joao
+    #2 Maria
+
+
+#1.24.DESEMPACOTAMENTO DE LISTAS EM PYTHON
+"""
+"""
+lista = ['Luiz', 'Joao', 'Maria', 1,2,3,4,5,6,100]
+n1,n2, *outra_lista, ultimo_da_lista = lista
+print(n1,n2) #Luiz Joao
+print(outra_lista) #['Maria', 1, 2, 3, 4, 5, 6, 100]
+print(ultimo_da_lista) #100
+
+*outra_lista, n1,n2, ultimo_da_lista = lista
+print(outra_lista, n1,n2,ultimo_da_lista) #['Luiz', 'Joao', 'Maria', 1, 2, 3, 4] 5 6 100
+
+
+#1.25.TROCANDO O VALOR DE VARIÁVEIS EM PYTHON
+"""
+"""
+x = 10
+y = 'Luiz'
+z = 'Otavio'
+x, y = y, x
+
+print(f'x= {x} y= {y}') #x= Luiz y= 10
+
+x, y, z = z, x, y
+print(f'x= {x} y= {y} z= {z}') #x= Otavio y= Luiz z= 10
+
+
+#1.26.OPERAÇÃO TERNÁRIA EM PYTHON
+"""
+"""
+logged_user = True
+msg = 'Usuario logado' if logged_user else 'usuario precisa logar'
+print(msg) #Usuario logado
+
+idade = 17
+e_de_maior = (idade >=18)
+msg = 'Pode acessar' if e_de_maior else 'Não pode acessar'
+print(msg) #Não pode acessar
+
+
+#1.27.EXPRESSÃO CONDICIONAL COM OPERADOR OR
+"""
+"""
+nome = input('Qual seu nome? ')
+print (nome or 'Você não digitou nada!') #Você não digitou nada!
+print (nome or None or False or 'Você não digitou nada!') #Você não digitou nada!
+
+
+#1.28.DESAFIO DE CONTADORES
+"""
+for / while
+0 10
+1 9
+2 8
+3 7
+4 6
+5 5
+6 4
+7 3
+8 2
+"""
+
+contador = 10
+acumulador = 0
+
+for acumulador in range (0,9):
+    print(acumulador,contador)
+    contador -= 1
+
+for p, r in enumerate (range(10,1, -1)):
+    print(p,r)
+
