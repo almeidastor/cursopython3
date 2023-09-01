@@ -777,3 +777,87 @@ for acumulador in range (0,9):
 for p, r in enumerate (range(10,1, -1)):
     print(p,r)
 
+
+#1.29.DESAFIO VALIDE UM CPF
+"""
+CPF = 168.995.350-09
+------------------------------------------
+1 * 10 = 10            #   1 * 11 = 11
+6 * 9  = 54            #   6 * 10 = 60
+8 * 8 = 64             #   8 * 9  = 72
+9 * 7 = 63             #   9 * 8  = 72
+9 * 6 = 54             #   9 * 7  = 63
+5 * 5 = 25             #   5 * 6  = 30
+3 * 4 = 12             #   3 * 5  = 15
+5 * 3 = 15             #   5 * 4  = 20
+0 * 2 = 0              #   0 * 3  = 0
+                       # ->0 * 2  = 0
+        297            #            343
+11 - (297 % 11) = 11   # 11 - (343 % 11) = 11
+11 > 9 =   0           # Digito 2 = 9
+Digito 1 = 0           #
+"""
+import string
+cpf="168.995.350-09"
+numero = []
+
+#retirando os caracteres do CPF
+cpf_sem_caracteres = ''.join(letra for letra in cpf if letra.isnumeric())
+
+#criação de uma lista de numeros
+for num in cpf:
+    for letra in num:
+        numero.append(letra)
+        if letra == "." or letra == "-":
+            numero.pop()
+
+#Remoção dos ultimos digitos
+del(numero[9:11])
+
+#conversão para inteiro
+convert_numeros = [int(item) for item in numero]
+
+#Criação da Range de Multiplicação de 10 a 1
+l2= list(range(10,1,-1))
+
+#Resultado do primeiro digito
+resultados_1 = []
+for num1, num2 in zip(convert_numeros, l2):
+    resultado_1 = num1 * num2
+    resultados_1.append(resultado_1)
+soma_1= sum(resultados_1)
+if 11 - (soma_1 % 11) > 9:
+    dig1=0
+else:
+    dig1=11 - (soma_1 % 11)
+
+#Criação da segunda lista
+resultados_2 = []
+convert_numeros.append(dig1)
+
+#Criação da Range de Multiplicação de 11 a 1
+l3= list(range(11,1,-1))
+
+#Resultado do primeiro digito
+resultados_2 = []
+for num1, num2 in zip(convert_numeros, l3):
+    resultado_2 = num1 * num2
+    resultados_2.append(resultado_2)
+soma_2= sum(resultados_2)
+if 11 - (soma_2 % 11) > 9:
+    dig2=0
+else:
+    dig2=11 - (soma_2 % 11)
+
+#Junção dos digitos na string
+string_resultante = ''.join(str(numero) for numero in numero)
+cpf_gerado = string_resultante + str(dig1) + str(dig2)
+
+#criação do cpf sem caracteres especiais
+cpf_sem_caracteres = ''.join(letra for letra in cpf if letra.isnumeric())
+
+#Calculo de CPF válido ou inválido
+if cpf_sem_caracteres == cpf_gerado:
+    print("CPF VÁLIDO")
+else:
+    print("CPF INVÁLIDO")
