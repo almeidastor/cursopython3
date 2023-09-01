@@ -32,3 +32,6 @@
 <p>1.27.EXPRESSÃO CONDICIONAL COM OPERADOR OR</p>
 <p>1.28.DESAFIO DE CONTADORES</p>
 <p>1.29.DESAFIO VALIDE UM CPF</p>
+
+<h1> Python Intermediário (Programação Procedural)</h1>
+<h3><a href="https://github.com/almeidastor/cursopython3/blob/main/conteudo02.py"> Clique aqui para acessar</a></h3>
